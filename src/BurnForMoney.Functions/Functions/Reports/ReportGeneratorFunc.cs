@@ -140,6 +140,7 @@ namespace BurnForMoney.Functions.Functions.Reports
             log.LogInformation(FunctionsNames.B_SendNotificationWithLinkToTheReport, "Created notification message.");
             var json = JsonConvert.SerializeObject(notification);
             await notificationsQueue.AddMessageAsync(new CloudQueueMessage(json));
+            //throw new ApplicationException("raise exception for idempotency test!");
         }
 
         private static string GetBlobSasToken(CloudBlob blob, SharedAccessBlobPermissions permissions)
