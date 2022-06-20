@@ -8,7 +8,7 @@
 
 If `B_SendNotificationWithLinkToTheReport` fails after a newly generated notification is added to the queue, and then retries, `SendEmail` will find duplicate notifications in queue and send duplicate emails to the user.
 
-In cases where `B_SendNotificationWithLinkToTheReport` keeps failing, it retries up to five times and the user will receive up to five duplicate emails. To reproduce test results, clone this repository, uncomment [ReportGeneratorFunc.cs#L143](https://github.com/hanrongz/BurnForMoney/blob/2223ee3f5efe340dec5909379e1e7da8bda4078e/src/BurnForMoney.Functions/Functions/Reports/ReportGeneratorFunc.cs#L143) and set up connections in `local.settings.json` as follows:
+In cases where `B_SendNotificationWithLinkToTheReport` keeps failing, it retries up to five times and the user will receive up to five duplicate emails. To reproduce test results, clone this repository, uncomment [ReportGeneratorFunc.cs#L143](https://github.com/hanrongz/BurnForMoney/blob/6fe597803c39df82ebedd1da6917f4ca1f4882a9/src/BurnForMoney.Functions/Functions/Reports/ReportGeneratorFunc.cs#L143) and set up connections in `local.settings.json` as follows:
 
 ```
 {
