@@ -11,6 +11,7 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Logging;
 using SendGrid;
 using SendGrid.Helpers.Mail;
+using System;
 
 namespace BurnForMoney.Functions.Functions.Notifications
 {
@@ -40,6 +41,7 @@ namespace BurnForMoney.Functions.Functions.Notifications
 
             log.LogInformation($"Sending message to: [{string.Join(", ", notification.Recipients)}].");
             var response = await _sendGridClient.SendEmailAsync(message);
+            //throw new ApplicationException("raise exception for idempotency test!");
 
             if (response.StatusCode == HttpStatusCode.Accepted || response.StatusCode == HttpStatusCode.OK)
             {
